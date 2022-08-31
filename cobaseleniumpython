@@ -1,0 +1,72 @@
+from select import select
+import time
+from selenium import webdriver 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
+
+class register():
+    def registrasi(self):
+        browser = webdriver.Chrome(executable_path=ChromeDriverManager(). install())
+        browser.get("http://automationpractice.com/index.php?controller=authentication&back=my-account")
+
+        #masukan email
+        browser.find_element(By.XPATH,"/html/body/div/div[2]/div/div[3]/div/div/div[1]/form/div/div[2]/input").send_keys("672015222@student.uksw.edu") # isi email
+        time.sleep(1)
+        #klik submit
+        browser.find_element(By.ID,"SubmitCreate").click() # klik tombol sign in
+        time.sleep(1)
+
+        browser.get("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation")
+        time.sleep(3)
+
+        #check box gender
+        browser.find_element(By.ID,"id_gender1").click()
+        time.sleep(1)
+        #nama awal
+        browser.find_element(By.XPATH,"/html/body/div/div[2]/div/div[3]/div/div/form/div[1]/div[2]/input").send_keys("Mira")
+        time.sleep(1)
+        #nama akhir
+        browser.find_element(By.XPATH,"/html/body/div/div[2]/div/div[3]/div/div/form/div[1]/div[3]/input").send_keys("Jane")
+        time.sleep(1)
+        #password
+        browser.find_element(By.XPATH,"/html/body/div/div[2]/div/div[3]/div/div/form/div[1]/div[5]/input").send_keys("Asdfghjkl")
+        time.sleep(1)
+
+        #nama awal
+        browser.find_element(By.ID,"firstname").send_keys()
+        time.sleep(1)
+        #nama akhir
+        browser.find_element(By.ID,"lastname").send_keys()
+        time.sleep(1)
+        #alamat 1
+        browser.find_element(By.XPATH,"/html/body/div/div[2]/div/div[3]/div/div/form/div[2]/p[4]/input").send_keys("Rownd wind no 01")
+        time.sleep(1)
+        #alamat 2
+        browser.find_element(By.XPATH,"/html/body/div/div[2]/div/div[3]/div/div/form/div[2]/p[5]/input").send_keys("Rin Apartment")
+        time.sleep(1)
+        #kota
+        browser.find_element(By.ID,"city").send_keys("Provo")
+        time.sleep(1)
+       
+
+        #postal code
+        browser.find_element(By.XPATH,"/html/body/div/div[2]/div/div[3]/div/div/form/div[2]/p[8]/input" ).send_keys("84604")
+        time.sleep(1)
+        #no hp
+        browser.find_element(By.ID,"phone_mobile").send_keys("0218368291")
+        time.sleep(1)
+        #alias
+        browser.find_element(By.ID,"alias").send_keys("Mandri Lasfield no 09, West Texas")
+        time.sleep(1)
+        #submit
+        browser.find_element(By.ID,"submitAccount").click()
+        time.sleep(1)
+
+closing = register()
+closing.registrasi()
+
+
+
+        
